@@ -8,19 +8,21 @@ public class Author {
     private String email;
     private int age;
     private String gender;
+    private Book book;
 
 
-    Author(){
+    Author() {
 
     }
 
-    Author(String name,String surname,String email,
-           int age, String gender){
-        this.name= name;
-        this.surname= surname;
+    Author(String name, String surname, String email,
+           int age, String gender,Book book) {
+        this.name = name;
+        this.surname = surname;
         this.email = email;
         this.age = age;
         this.gender = gender;
+        this.book = book;
 
 
     }
@@ -65,6 +67,15 @@ public class Author {
         this.gender = gender;
     }
 
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+
     @Override
     public String toString() {
         return "Author{" +
@@ -73,6 +84,9 @@ public class Author {
                 ", email='" + email + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
+                ", book=" + book +
                 '}';
     }
 }
+
+
