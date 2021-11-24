@@ -194,6 +194,7 @@ public class AuthorBookTest {
         book.setDescription(desc);
         book.setPrice(price);
         book.setCount(count);
+        bookStorage.add(book);
 
 
         Author author = new Author(name,surname,email,age,gender,book);

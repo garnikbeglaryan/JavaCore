@@ -76,6 +76,7 @@ public class AuthorStorage {
     public void changeBookAuthor(String keword) {
         for (int i = 0; i < size; i++) {
             if(authors[i].getBook().getTitle().equals(keword)){
+
                 System.out.println(authors[i].getBook());
 //                authors[i].setEmail();
             }
