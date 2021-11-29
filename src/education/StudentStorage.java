@@ -30,7 +30,6 @@ public class StudentStorage {
     public Student getByEmail(String email) {
         for (int i = 0; i < size; i++) {
             if (students[i].getEmail().equals(email)) {
-//                delete(i);
                 return students[i];
             }
 
