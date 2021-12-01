@@ -21,7 +21,7 @@ public class LessonStorage {
 
     public void print(){
         for (int i = 0; i < size; i++) {
-            System.out.println(lessons[i] + " ");
+            System.out.println(lessons[i]);
         }
     }
 
@@ -49,4 +49,5 @@ public class LessonStorage {
         }
         size--;
     }
+
 }

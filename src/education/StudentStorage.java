@@ -22,7 +22,8 @@ public class StudentStorage {
 
     public void print() {
         for (int i = 0; i < size; i++) {
-            System.out.println(students[i] + " ");
+            System.out.println(students[i]);
+
         }
     }
 
@@ -33,16 +34,6 @@ public class StudentStorage {
                 return students[i];
             }
 
-        }
-        return null;
-    }
-
-
-    public Student getByLesson(String lesson) {
-        for (int i = 0; i < size; i++) {
-            if (students[i].getLesson().equals(lesson)) {
-                System.out.println(students[i]);
-            }
         }
         return null;
     }
@@ -62,5 +53,14 @@ public class StudentStorage {
             students[i - 1] = students[i];
         }
         size--;
+    }
+
+    public void printByLesson(String lessonName) {
+        for (int i = 0; i < size; i++) {
+            if(students[i].getLesson().toString().contains(lessonName)){
+                System.out.println(students[i]);
+                break;
+            }
+        }
     }
 }

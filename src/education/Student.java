@@ -9,10 +9,11 @@ public class Student {
     private int age;
     private String email;
     private String phone;
-    private String lesson;
+    private Lesson lesson;
+    private Lesson [] lessons;
 
     Student(String name, String surname, int age,
-            String email, String phone, String lesson) {
+            String email, String phone, Lesson lesson) {
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -65,13 +66,15 @@ public class Student {
         this.phone = phone;
     }
 
-    public String getLesson() {
+
+    public Lesson getLesson() {
         return lesson;
     }
 
-    public void setLesson(String lesson) {
+    public void setLesson(Lesson lesson) {
         this.lesson = lesson;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -94,7 +97,7 @@ public class Student {
                 ", age=" + age +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", lesson='" + lesson + '\'' +
+                ", lesson=" + lesson +
                 '}';
     }
 }

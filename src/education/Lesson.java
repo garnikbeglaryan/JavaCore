@@ -8,14 +8,14 @@ public class Lesson {
     private String duration;
     private String lecturerName;
     private int price;
-    private Student student;
 
-    Lesson(String name, String duration, String lecturerName, int price, Student student) {
+
+    Lesson(String name, String duration, String lecturerName, int price) {
         this.name = name;
         this.duration = duration;
         this.lecturerName = lecturerName;
         this.price = price;
-        this.student = student;
+
     }
 
     Lesson() {
@@ -54,13 +54,6 @@ public class Lesson {
         this.price = price;
     }
 
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
 
 
     @Override
@@ -68,12 +61,12 @@ public class Lesson {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Lesson lesson = (Lesson) o;
-        return price == lesson.price && Objects.equals(name, lesson.name) && Objects.equals(duration, lesson.duration) && Objects.equals(lecturerName, lesson.lecturerName) && Objects.equals(student, lesson.student);
+        return price == lesson.price && Objects.equals(name, lesson.name) && Objects.equals(duration, lesson.duration) && Objects.equals(lecturerName, lesson.lecturerName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, duration, lecturerName, price, student);
+        return Objects.hash(name, duration, lecturerName, price);
     }
 
     @Override
@@ -83,7 +76,6 @@ public class Lesson {
                 ", duration='" + duration + '\'' +
                 ", lecturerName='" + lecturerName + '\'' +
                 ", price=" + price +
-                ", student=" + student +
                 '}';
     }
 }
