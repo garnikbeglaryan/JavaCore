@@ -1,5 +1,7 @@
 package author;
 
+import java.util.Scanner;
+
 public class AuthorStorage {
 
 
@@ -47,40 +49,19 @@ public class AuthorStorage {
         for (int i = 0; i < size; i++) {
             if (authors[i].getEmail().equals(email)) {
                 return authors[i];
-
             }
         }
         return null;
     }
 
-    public Book searchBooksByAuthor(String email) {
+
+    public void delete(Author author) {
         for (int i = 0; i < size; i++) {
-            if (authors[i].getEmail().equals(email)) {
-                System.out.println(authors[i].getBook());
+            if (authors[i].equals(author)) {
+                ArrayUtil.deleteByIndex(authors, i, size);
+                size--;
+                break;
             }
-        }
-        return null;
-    }
-
-    public void changeAuthor(String email) {
-        for (int i = 0; i < size; i++) {
-            if(authors[i].getEmail().equals(email)){
-                authors[i].setName("petros");
-                authors[i].setSurname("petrosyan");
-
-
-            }
-        }
-    }
-
-    public void changeBookAuthor(String keword) {
-        for (int i = 0; i < size; i++) {
-            if(authors[i].getBook().getTitle().equals(keword)){
-
-                System.out.println(authors[i].getBook());
-//                authors[i].setEmail();
-            }
-
         }
     }
 }
