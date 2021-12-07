@@ -115,7 +115,7 @@ public class LessonStudentTest implements StudentLessonCommand, UserCommand {
                     lessonStorage.print();
                     break;
                 default:
-                    System.out.println("Invalid command");
+                    System.err.println("Invalid command");
             }
         }
     }
@@ -149,7 +149,7 @@ public class LessonStudentTest implements StudentLessonCommand, UserCommand {
                     lessonStorage.print();
                     break;
                 default:
-                    System.out.println("Invalid command");
+                    System.err.println("Invalid command");
 
 
             }
