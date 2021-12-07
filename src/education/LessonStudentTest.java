@@ -70,80 +70,89 @@ public class LessonStudentTest implements StudentLessonCommand, UserCommand {
             String password = scanner.nextLine();
             if (user.getPassword().equals(password)) {
                 if (user.getType().equals("user")) {
-
-                    boolean isCommand = true;
-
-                    while (isCommand) {
-
-                        StudentLessonCommand.printCommands1();
-                        String command = scanner.nextLine();
-                        switch (command) {
-                            case EXIT1:
-                                isCommand = false;
-                                break;
-                            case ADD_LESSON:
-                                addLesson();
-                                break;
-                            case ADD_STUDENT:
-                                addStudent();
-                                break;
-                            case PRINT_STUDENTS_BY_LESSON:
-                                printStudentByLesson();
-                                break;
-                            case PRINT_STUDENTS:
-                                studentStorage.print();
-                                break;
-                            case PRINT_LESSONS:
-                                lessonStorage.print();
-                                break;
-                            default:
-                                System.out.println("Invalid command");
-
-                        }
-                    }
+                    printCommandsUser();
                 }
                 if (user.getType().equals("admin")) {
-
-                    boolean isCommand = true;
-
-                    while (isCommand) {
-                        StudentLessonCommand.printCommands();
-                        String command = scanner.nextLine();
-                        switch (command) {
-                            case EXIT1:
-                                isCommand = false;
-                                break;
-                            case ADD_LESSON:
-                                addLesson();
-                                break;
-                            case ADD_STUDENT:
-                                addStudent();
-                                break;
-                            case PRINT_STUDENTS_BY_LESSON:
-                                printStudentByLesson();
-                                break;
-                            case DELETE_LESSON_BY_NAME:
-                                deleteLessonByName();
-                                break;
-                            case DELETE_STUDENT_BY_EMAIL:
-                                deleteStudentByEmail();
-                                break;
-                            case PRINT_STUDENTS:
-                                studentStorage.print();
-                                break;
-                            case PRINT_LESSONS:
-                                lessonStorage.print();
-                                break;
-                            default:
-                                System.out.println("Invalid command");
-                        }
-                    }
+                    printCommandsForAdmin();
                 }
             }else {
                 System.err.println("Invalid password");
             }
         }else {
             System.err.println("Invalid email");
+        }
+    }
+
+    private static void printCommandsForAdmin() throws ParseException {
+        boolean isCommand = true;
+
+        while (isCommand) {
+            StudentLessonCommand.printCommands();
+            String command = scanner.nextLine();
+            switch (command) {
+                case EXIT1:
+                    isCommand = false;
+                    break;
+                case ADD_LESSON:
+                    addLesson();
+                    break;
+                case ADD_STUDENT:
+                    addStudent();
+                    break;
+                case PRINT_STUDENTS_BY_LESSON:
+                    printStudentByLesson();
+                    break;
+                case DELETE_LESSON_BY_NAME:
+                    deleteLessonByName();
+                    break;
+                case DELETE_STUDENT_BY_EMAIL:
+                    deleteStudentByEmail();
+                    break;
+                case PRINT_STUDENTS:
+                    studentStorage.print();
+                    break;
+                case PRINT_LESSONS:
+                    lessonStorage.print();
+                    break;
+                default:
+                    System.out.println("Invalid command");
+            }
+        }
+    }
+
+
+    private static void printCommandsUser() throws ParseException {
+
+        boolean isCommand = true;
+
+        while (isCommand) {
+
+            StudentLessonCommand.printCommands1();
+            String command = scanner.nextLine();
+            switch (command) {
+                case EXIT1:
+                    isCommand = false;
+                    break;
+                case ADD_LESSON:
+                    addLesson();
+                    break;
+                case ADD_STUDENT:
+                    addStudent();
+                    break;
+                case PRINT_STUDENTS_BY_LESSON:
+                    printStudentByLesson();
+                    break;
+                case PRINT_STUDENTS:
+                    studentStorage.print();
+                    break;
+                case PRINT_LESSONS:
+                    lessonStorage.print();
+                    break;
+                default:
+                    System.out.println("Invalid command");
+
+
+            }
         }
     }
 
