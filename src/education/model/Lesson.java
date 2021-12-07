@@ -1,4 +1,4 @@
-package education;
+package education.model;
 
 import java.util.Objects;
 
@@ -10,7 +10,7 @@ public class Lesson {
     private int price;
 
 
-    Lesson(String name, String duration, String lecturerName, int price) {
+    public Lesson(String name, String duration, String lecturerName, int price) {
         this.name = name;
         this.duration = duration;
         this.lecturerName = lecturerName;
@@ -18,7 +18,7 @@ public class Lesson {
 
     }
 
-    Lesson() {
+    public Lesson() {
 
     }
 

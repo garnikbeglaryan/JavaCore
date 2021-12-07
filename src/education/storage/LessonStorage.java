@@ -1,8 +1,11 @@
-package education;
+package education.storage;
+
+import education.util.ArrayUtil;
+import education.model.Lesson;
 
 public class LessonStorage {
 
-    Lesson [] lessons = new Lesson[10];
+    Lesson[] lessons = new Lesson[10];
     int size;
 
     public void add(Lesson lesson){
@@ -37,17 +40,18 @@ public class LessonStorage {
     public void deleteBylesson(String name) {
         for (int i = 0; i < size; i++) {
             if(lessons[i].getName().equals(name)){
-                delete(i);
+                ArrayUtil.delete(lessons,i,size);
+                size--;
+                break;
             }
         }
-
     }
 
-    private void delete(int index){
-        for (int i =index + 1 ; i < size; i++) {
-            lessons[i - 1] = lessons[i];
-        }
-        size--;
-    }
+//    private void delete(int index){
+//        for (int i =index + 1 ; i < size; i++) {
+//            lessons[i - 1] = lessons[i];
+//        }
+//        size--;
+//    }
 
 }
