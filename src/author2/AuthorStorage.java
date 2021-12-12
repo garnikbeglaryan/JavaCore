@@ -1,9 +1,6 @@
-package author;
-
-import java.util.Scanner;
+package author2;
 
 public class AuthorStorage {
-
 
     private Author[] authors = new Author[16];
     private int size;
@@ -54,21 +51,22 @@ public class AuthorStorage {
         return null;
     }
 
-
     public void delete(Author author) {
         for (int i = 0; i < size; i++) {
-            if (authors[i].equals(author)) {
-                ArrayUtil.deleteByIndex(authors, i, size);
-                size--;
+            if (authors[i].equals(author)){
+                deleteByIndex(i);
                 break;
             }
+
         }
+
+    }
+
+    private void deleteByIndex(int index){
+        for (int i = index +1; i < size; i++) {
+            authors[i-1] = authors[i];
+
+        }
+        size--;
     }
 }
-
-
-
-
-
-
-

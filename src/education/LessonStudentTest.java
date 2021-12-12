@@ -47,18 +47,35 @@ public class LessonStudentTest implements StudentLessonCommand, UserCommand {
     }
 
     private static void registor() {
-        System.out.println("please input user name,surname,email,password,type");
-        String userDataStr = scanner.nextLine();
-        String [] userData = userDataStr.split(",");
-        if(userData.length == 5){
+        System.out.println("Please input email");
+        String email = scanner.nextLine();
+        User byEmail = userStorage.getByEmail(email);
+        if(byEmail == null){
+            System.out.println("please input name");
+            String name = scanner.nextLine();
+            System.out.println("please input surname");
+            String surname = scanner.nextLine();
+            System.out.println("please input password");
+            String password = scanner.nextLine();
+            System.out.println("please input type");
+            String type = scanner.nextLine();
+            if (type.equalsIgnoreCase("admin") || type.equalsIgnoreCase("user")){
+                User user = new User();
+                user.setEmail(email);
+                user.setName(name);
+                user.setSurname(surname);
+                user.setPassword(password);
+                user.setType(type);
+                userStorage.add(user);
+                System.out.println("User was registered");
+            }else {
+                System.err.println("Inavlid type");
+            }
 
-            User user = new User(userData[0],userData[1],userData[2],userData[3],userData[4]);
-            userStorage.add(user);
-
-            System.out.println("User was aded");
         }else {
-            System.out.println("Data invalid");
+            System.err.println("user with " + email + "already exists");
         }
+
     }
 
     private static void login() throws ParseException {

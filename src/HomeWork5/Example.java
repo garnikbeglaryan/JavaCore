@@ -2,11 +2,18 @@ package HomeWork5;
 
 public class Example {
 
+
+//    static byte m1(){
+//        final char c1='\u00001';
+//        return c1;
+
+//    }
+
     public static void main(String[] args) {
 
 
 //        for (int i = 0; i < 5; i++) {
-//            for (int j = 0; j < i; j++) {
+//            for (int j = 0; j <= i; j++) {
 //                System.out.print("* ");
 //
 //            }
@@ -92,14 +99,6 @@ public class Example {
 //        }System.out.println();
 
 
-
-
-
-
-
-
-
-
         //Տպեք մասիվի բոլոր էլեմենտները
 
 //        int[] array = {2, 6, 12, 24, 16, 17, 18, 45, 62, 47};
@@ -155,8 +154,6 @@ public class Example {
 //        }
 
 
-
-
         //Տպեք զույգերի քանակը
 
 //        int[] array = {2, 6, 12, 24, 16, 17, 18, 45, 62, 47};
@@ -198,14 +195,6 @@ public class Example {
 //        System.out.println(money / array.length);
 
 
-
-
-
-
-
-
-
-
         //Պետք է գրել լոգիկա, որը կհաշվի թե քանի հատ կա c-փոփոխականից մեր մասիվի մեջ, ու տպել այդ քանակը։
 
 
@@ -220,10 +209,6 @@ public class Example {
 //        System.out.println(count);
 
 
-
-
-
-
         //Գրել կոդ, որը կտպի մեջտեղի 2 սինվոլները։
 
 
@@ -232,43 +217,97 @@ public class Example {
 //        System.out.println(bolola[bolola.length / 2]);
 
 
-
-
-
-
-
         // Տպենք true եթե մեր մասիվը վերջանում է ly-ով, եթե ոչ՝ false
 
-
-//        char[] bolola = {'b', 'o', 'l', 'o', 'l', 'a'};
-//        if (bolola[bolola.length - 2] == 'l' && bolola[bolola.length - 1] == 'y') {
-//            System.out.println(true);
 //
-//        } else
-//            System.out.println(false);
-
-
-
-
+//        char[] bolola = {'b', 'o', 'l', 'o', 'l', 'a'};
+//
+//        if (bolola[bolola.length - 2] == 'l' && bolola[bolola.length - 1] == 'y') {
+//            System.out.print(true);
+//        }else
+//            System.out.print(false);
 
 
         //Տպել true եթե տեքստը պարունակում է bob բառը
 
 
 //        char[] bolola = {'b', 'a', 'b', 'o', 'l', 'a'};
+//        boolean count = false;
 //        for (int i = 0; i < bolola.length; i++) {
 //            if (bolola[i] == 'b' && bolola[i + 2] == 'b') {
-//                System.out.println(true);
-//                  break;
-//            }else
-//                System.out.println(false);
-//                  break;
-//       }
+//                count = true;
+//                break;
+//            }
+//
+//      }
+//        System.out.print(count);
 
 
+        // tpel teqst@ aranc skzbi yev verji bacatneri
+//
+//        char[] text = {' ', ' ', 'b', 'a', 'r', 'e', 'v', ' ', ' '};
+//        int startindex = 0;
+//        int endindex = text.length - 1;
+//
+//        while (startindex < endindex && text[startindex] == ' ') {
+//            startindex++;
+//        }
+//        while (startindex < endindex && text[endindex] == ' ') {
+//            endindex--;
+//        }
+//        char[] result =new char [(endindex -startindex ) +1 ] ;
+//
+//        int index = 0;
+//        for (int i = startindex; i <= endindex; i++) {
+//            result[index++]=text[i];
+//        }
+//        for (int i = 0; i < result.length; i++) {
+//            System.out.print(result[i]);
+//
+//        }
 
 
+        // Sortavorel masiv@
 
+//        int[] array = {2, 5, 1, 4, 7, 12, 16, 17, 6, 9};
+//        for (int i = 0; i < array.length; i++) {
+//            for (int j = 1; j < array.length; j++) {
+//                if (array[j] < array[j - 1]) {
+//                    int tmp = array[j];
+//                    array[j] = array[j - 1];
+//                    array[j - 1] = tmp;
+//                }
+//            }
+//        }
+//        for (int i = 0; i < array.length; i++) {
+//            System.out.print(array[i] + " ");
+//
+//        }
+
+
+        char[] array = {' ', ' ', 'b', 'a', 'r', 'e', 'v', ' ', ' '};
+        int startindex = 0;
+        int endindex = array.length - 1;
+
+        while (startindex < endindex && array[startindex] == ' ') {
+            startindex++;
+
+        }
+        while (startindex < endindex && array [endindex] == ' '){
+            endindex--;
+        }
+
+        char [] result = new char [(endindex - startindex)+1 ];
+
+        int index  = 0;
+
+        for (int i = startindex; i <= endindex; i++) {
+             result[index ++] = array [i];
+        }
+        for (int i = 0; i < array.length; i++) {
+
+        }
+        System.out.println(result);
 
     }
 }

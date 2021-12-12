@@ -1,8 +1,10 @@
-package author;
+package author2;
+
+import java.util.Objects;
 
 public class Book {
 
-    private String serialId; //AG1123455
+    private String serialId;
     private String title;
     private String description;
     private double price;
@@ -70,6 +72,7 @@ public class Book {
         this.serialId = serialId;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -103,7 +106,6 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "title='" + title + '\'' +
-                ", serialId='" + serialId + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", count=" + count +

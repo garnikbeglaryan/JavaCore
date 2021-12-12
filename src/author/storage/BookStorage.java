@@ -1,4 +1,8 @@
-package author;
+package author.storage;
+
+import author.util.ArrayUtil;
+import author.model.Author;
+import author.model.Book;
 
 public class BookStorage {
 
@@ -43,8 +47,10 @@ public class BookStorage {
 
     public void searchByAuthor(Author author) {
         for (int i = 0; i < size; i++) {
-            if (books[i].getAuthor().equals(author)) {
-                System.out.println(books[i]);
+            for (Author author1 : books[i].getAuthors()) {
+                if (author1.equals(author)) {
+                    System.out.println(books[i]);
+                }
             }
         }
     }
@@ -52,8 +58,10 @@ public class BookStorage {
     public void countByAuthor(Author author) {
         int count = 0;
         for (int i = 0; i < size; i++) {
-            if (books[i].getAuthor().equals(author)) {
-                count++;
+            for (Author author1 : books[i].getAuthors()) {
+                if (author1.equals(author)) {
+                    count++;
+                }
             }
         }
         System.out.println("count of " + author.getEmail() + " author's book is " + count);
@@ -72,10 +80,12 @@ public class BookStorage {
 
     public void deleteByAuthor(Author author) {
         for (int i = 0; i < size; i++) {
-            if (books[i].getAuthor().equals(author)) {
-                ArrayUtil.deleteByIndex(books, i, size);
+            for (Author author1 : books[i].getAuthors()) {
+                if (author1.equals(author)) {
+                    ArrayUtil.deleteByIndex(books, i, size);
+                }
             }
+            size--;
         }
-        size--;
     }
 }

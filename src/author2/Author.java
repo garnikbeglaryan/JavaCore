@@ -1,4 +1,4 @@
-package author;
+package author2;
 
 public class Author {
 
@@ -59,7 +59,6 @@ public class Author {
         this.gender = gender;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -95,5 +94,3 @@ public class Author {
                 '}';
     }
 }
-
-

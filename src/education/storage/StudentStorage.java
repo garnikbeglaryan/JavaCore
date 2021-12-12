@@ -2,6 +2,8 @@ package education.storage;
 
 import education.model.Student;
 
+import java.util.Arrays;
+
 public class StudentStorage {
 
     Student[] students = new Student[10];
@@ -59,7 +61,7 @@ public class StudentStorage {
 
     public void printByLesson(String lessonName) {
         for (int i = 0; i < size; i++) {
-            if(students[i].getLessons().toString().contains(lessonName)){
+            if(Arrays.toString(students[i].getLessons()).contains(lessonName)){
                 System.out.println(students[i]);
                 break;
             }
