@@ -1,57 +1,74 @@
 package education.storage;
 
+import education.LessonStudentTest;
+import education.model.EntryType;
 import education.util.ArrayUtil;
 import education.model.Lesson;
+import education.util.FileUtil;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class LessonStorage {
 
-    Lesson[] lessons = new Lesson[10];
-    int size;
+    List<Lesson> lessons = new ArrayList<>();
 
-    public void add(Lesson lesson){
-        if(lessons.length == size){
-            extend();
-        }
-        lessons[size++] = lesson;
+
+    public void add(Lesson lesson) {
+
+        lessons.add(lesson);
 
     }
 
-    private void extend() {
-        Lesson [] array = new Lesson[lessons.length + 10];
-        System.arraycopy(lessons,0,array,0,array.length +10);
-        lessons = array;
-    }
 
-    public void print(){
-        for (int i = 0; i < size; i++) {
-            System.out.println(lessons[i]);
+    public void print() {
+        for (Lesson lesson : lessons) {
+            System.out.println(lesson);
         }
     }
 
     public Lesson getByName(String name) {
-        for (int i = 0; i < size; i++) {
-            if(lessons[i].getName().equals(name)){
-                return lessons[i];
+        for (Lesson lesson : lessons) {
+            if (lesson.getName().equals(name)) {
+                return lesson;
             }
         }
         return null;
     }
 
-    public void deleteBylesson(String name) {
-        for (int i = 0; i < size; i++) {
-            if(lessons[i].getName().equals(name)){
-                ArrayUtil.delete(lessons,i,size);
-                size--;
-                break;
-            }
+    public void deleteByLesson(String name) {
+        Lesson lessonByName = getByName(name);
+        if (lessonByName != null) {
+            lessons.remove(lessonByName);
         }
     }
 
-//    private void delete(int index){
-//        for (int i =index + 1 ; i < size; i++) {
-//            lessons[i - 1] = lessons[i];
-//        }
-//        size--;
-//    }
+    public List<Lesson> getLessonsByNames(String[] names) {
+        List<Lesson> result = new ArrayList<>();
+        for (int i = 0; i < names.length; i++) {
+            Lesson lessonByName = getByName(names[i]);
+            if (lessonByName != null) {
+                result.add(lessonByName);
+            }
+        }
+        return lessons;
+    }
+
+    public void initData() throws IOException, ClassNotFoundException {
+        Collection lessonsFromFile = FileUtil.getEntries(EntryType.LESSON);
+        for (Object fileLesson : lessonsFromFile) {
+            lessons.add((Lesson) fileLesson);
+        }
+    }
+
+    public void insertDataToFile() {
+        try {
+            FileUtil.addEntry(lessons, EntryType.LESSON);
+        } catch (Exception ex) {
+            System.err.println("Exception during lessons data saving to file");
+        }
+    }
 
 }

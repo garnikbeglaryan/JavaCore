@@ -1,8 +1,10 @@
 package education.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Lesson {
+public class Lesson implements Serializable {
+    private static final long serialVersionUid = 1l;
 
     private String name;
     private String duration;
@@ -53,7 +55,6 @@ public class Lesson {
     public void setPrice(int price) {
         this.price = price;
     }
-
 
 
     @Override
